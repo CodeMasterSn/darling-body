@@ -234,27 +234,35 @@ h1, h2, h3, h4 {
 }
 
 .thumbnail {
-    background: #FFD6E8;
-    border-radius: 12px;
-    padding: 15px;
+    min-width: 70px;      /* ← Change 60px en 70px */
+    width: 70px;          /* ← AJOUTE cette ligne */
+    height: 70px;         /* ← Change 60px en 70px */
+    flex-shrink: 0;       /* ← AJOUTE cette ligne */
+    border-radius: 10px;  /* ← Change 8px en 10px */
+    border: 2px solid transparent;  /* ← AJOUTE cette ligne */
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 3px solid transparent;
-}
-
-.thumbnail:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.thumbnail.active {
-    border-color: #1F1F1F;
+    overflow: hidden;     /* ← AJOUTE cette ligne */
+    background: linear-gradient(135deg, #F5E6E8 0%, #FEFAF9 100%);  /* ← AJOUTE cette ligne */
+    display: flex;        /* ← AJOUTE cette ligne */
+    align-items: center;  /* ← AJOUTE cette ligne */
+    justify-content: center;  /* ← AJOUTE cette ligne */
+    padding: 5px;         /* ← AJOUTE cette ligne */
 }
 
 .thumbnail img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+    width: 100%;          /* ← AJOUTE cette ligne */
+    height: 100%;         /* ← AJOUTE cette ligne */
+    object-fit: contain;  /* ← AJOUTE cette ligne */
+    object-position: center;  /* ← AJOUTE cette ligne */
+    border-radius: 6px;   /* ← AJOUTE cette ligne */
+}
+
+.thumbnail.active,
+.thumbnail:hover {
+    border-color: #FF1493;  /* ← AJOUTE cette ligne */
+    box-shadow: 0 4px 12px rgba(255, 20, 147, 0.2);  /* ← AJOUTE cette ligne */
+    transform: translateY(-2px);  /* ← AJOUTE cette ligne */
 }
 
 /* === INFO SECTION === */
@@ -835,7 +843,7 @@ select option:checked {
     /* Section détail produit */
     .product-detail,
     .product-layout {
-        padding: 100px 0 60px; /* Réduit mais garde espace pour header */
+        padding: 80px 0 60px; /* Réduit mais garde espace pour header */
         width: 100%;
         max-width: 100%;
         overflow: hidden;
@@ -850,7 +858,7 @@ select option:checked {
     .product-detail-grid {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 25px;
         width: 100%;
     }
 
@@ -967,7 +975,7 @@ select option:checked {
         font-size: 0.75rem;
         margin-bottom: 12px; /* Réduit de 15px à 12px */
         margin-top: 0;
-        padding-top: 100px; /* Évite que le breadcrumb soit masqué par le header fixe */
+        padding-top: 0; /* Évite que le breadcrumb soit masqué par le header fixe */
         padding-bottom: 15px; /* Réduit le padding-bottom */
         flex-wrap: wrap;
     }
@@ -983,7 +991,7 @@ select option:checked {
     .product-title {
         font-size: 1.8rem;
         margin-bottom: 10px; /* Réduit de 15px à 10px */
-        margin-top: 10px; /* Ajoute un margin-top */
+        margin-top: 12px; /* Ajoute un margin-top */
         line-height: 1.2;
     }
 
@@ -996,8 +1004,9 @@ select option:checked {
     /* Rating */
     .product-rating {
         font-size: 0.85rem;
-        margin-top: 8px; /* Réduit l'espace au-dessus */
-        margin-bottom: 20px;
+        margin-top: 0; /* Réduit l'espace au-dessus */
+        margin-bottom: 12px;
+        padding-top: 0;
     }
 
     /* Prix */

@@ -43,3 +43,4 @@ Une fois les fichiers générés, le favicon fonctionnera sur :
 - ✅ Android
 - ✅ iOS (écran d'accueil)
 
+
