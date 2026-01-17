@@ -221,6 +221,7 @@ h1, h2, h3 {
     align-items: center; /* Centre verticalement */
     min-height: auto; /* Retire la hauteur fixe */
     border: 2px solid transparent; /* Border transparent pour éviter le changement de taille au hover */
+    cursor: pointer; /* Indique que la card est cliquable */
 }
 
 .product-card:hover {
@@ -553,6 +554,12 @@ h1, h2, h3 {
         min-height: auto;
         padding: 0;
         gap: 0;
+    }
+
+    /* Effet actif sur mobile pour feedback tactile */
+    .product-card:active {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     }
 
     .product-badge {

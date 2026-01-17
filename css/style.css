@@ -221,47 +221,50 @@ h3 {
 .organic-shape {
     position: absolute;
     border-radius: 50%;
-    z-index: 1;
-    opacity: 0.6;
+    z-index: 0;
 }
 
 .shape-1 {
     width: 400px;
     height: 400px;
-    background: linear-gradient(135deg, #F4D4D8 0%, #F8E8EA 100%);
+    background: rgba(255, 20, 147, 0.12); /* Rose principal #FF1493 avec opacité optimisée */
     top: -100px;
     left: -100px;
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.08); /* Ombre subtile pour profondeur */
+    z-index: 0;
 }
 
 .shape-2 {
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, #FFE5E9 0%, #FFF5F7 100%);
+    background: rgba(255, 20, 147, 0.15); /* Rose principal, opacité légèrement plus élevée */
     bottom: 50px;
     right: -80px;
+    box-shadow: 0 8px 32px rgba(255, 20, 147, 0.1); /* Ombre un peu plus marquée */
+    z-index: 0;
 }
 
 .organic-dots {
     position: absolute;
     width: 120px;
     height: 120px;
-    z-index: 1;
+    z-index: 0;
 }
 
 .dots-1 {
     top: 100px;
     right: 200px;
-    background: radial-gradient(circle, #F4D4D8 2px, transparent 2px);
+    background: radial-gradient(circle, rgba(255, 20, 147, 0.2) 2px, transparent 2px); /* Rose principal #FF1493 */
     background-size: 20px 20px;
-    opacity: 0.3;
+    opacity: 0.5; /* Augmenté de 0.3 à 0.5 pour plus de visibilité */
 }
 
 .dots-2 {
     bottom: 150px;
     left: 100px;
-    background: radial-gradient(circle, #F4D4D8 2px, transparent 2px);
+    background: radial-gradient(circle, rgba(255, 20, 147, 0.2) 2px, transparent 2px); /* Rose principal #FF1493 */
     background-size: 20px 20px;
-    opacity: 0.3;
+    opacity: 0.5; /* Augmenté de 0.3 à 0.5 pour plus de visibilité */
 }
 
 .hero-content {
@@ -506,6 +509,7 @@ h3 {
     text-align: center;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1), border 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent; /* Border transparent pour éviter le changement de taille au hover */
+    cursor: pointer; /* Indique que la card est cliquable */
 }
 
 .product-card:hover {
@@ -1190,6 +1194,12 @@ h3 {
 
     .product-card {
         padding: 15px;
+    }
+
+    /* Effet actif sur mobile pour feedback tactile */
+    .product-card:active {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     }
 
     .product-image-wrapper {

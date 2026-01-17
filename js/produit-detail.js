@@ -36,7 +36,7 @@ const productsData = {
     'creme-sculptante': {
         name: 'Crème Sculptante Ventre Plat',
         tagline: 'Effet Chauffant',
-        price: 10000,
+        price: 7000,
         format: '150 g (5.3 oz)',
         badge: 'Populaire',
         rating: '62 avis',
@@ -60,7 +60,7 @@ const productsData = {
     'coupe-faim': {
         name: 'Coupe-Faim Naturel',
         tagline: 'Équilibre & Silhouette',
-        price: 15000,
+        price: 20000, // Prix par défaut (Formule Bien Dosée)
         format: '30 gélules',
         badge: 'Nouveau',
         rating: '31 avis',
@@ -163,6 +163,21 @@ function loadProductData() {
     document.getElementById('product-format').innerHTML = `<strong>Format :</strong> ${product.format}`;
     document.getElementById('product-short-description').textContent = product.shortDescription;
     
+    // Afficher le sélecteur de formule uniquement pour Coupe Faim
+    const formulaSelector = document.getElementById('formula-selector');
+    if (productId === 'coupe-faim') {
+        formulaSelector.style.display = 'block';
+        // Initialiser le prix avec la formule par défaut (20000)
+        const defaultPrice = 20000;
+        document.getElementById('product-price').textContent = `${defaultPrice.toLocaleString()} FCFA`;
+        // Initialiser le calcul du total avec le prix de la formule
+        initializeFormulaSelector(defaultPrice);
+    } else {
+        formulaSelector.style.display = 'none';
+        // Initialiser le calcul du total avec le prix normal
+        updateTotalPrice(product.price);
+    }
+    
     // Mise à jour des tabs
     document.getElementById('full-description').innerHTML = product.fullDescription;
     
@@ -178,9 +193,6 @@ function loadProductData() {
     
     // Charger les produits recommandés
     loadRelatedProducts(productId);
-    
-    // Initialiser le calcul du total
-    updateTotalPrice(product.price);
 }
 
 // Fonction pour charger la galerie d'images
@@ -228,7 +240,53 @@ function loadRelatedProducts(currentProductId) {
     `).join('');
 }
 
-// Fonction pour mettre à jour le prix total
+// Fonction pour initialiser le sélecteur de formule (Coupe Faim)
+function initializeFormulaSelector(defaultPrice) {
+    const formulaSelect = document.getElementById('formula');
+    const priceElement = document.getElementById('product-price');
+    const quantitySelect = document.getElementById('quantity');
+    const totalElement = document.getElementById('total-amount');
+    
+    // Variable pour stocker le prix actuel
+    let currentPrice = defaultPrice;
+    
+    // Fonction pour mettre à jour le prix et le total
+    function updatePriceAndTotal(newPrice) {
+        currentPrice = newPrice;
+        priceElement.textContent = `${newPrice.toLocaleString()} FCFA`;
+        
+        // Animation subtile
+        priceElement.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+            priceElement.style.transform = 'scale(1)';
+        }, 200);
+        
+        // Mettre à jour le total
+        const quantity = parseInt(quantitySelect.value);
+        const total = newPrice * quantity;
+        totalElement.textContent = `${total.toLocaleString()} FCFA`;
+    }
+    
+    // Écouter le changement de formule
+    formulaSelect.addEventListener('change', function() {
+        const selectedPrice = parseInt(this.value);
+        updatePriceAndTotal(selectedPrice);
+    });
+    
+    // Écouter le changement de quantité
+    quantitySelect.addEventListener('change', function() {
+        const quantity = parseInt(this.value);
+        const total = currentPrice * quantity;
+        totalElement.textContent = `${total.toLocaleString()} FCFA`;
+    });
+    
+    // Initialiser le total au chargement
+    const quantity = parseInt(quantitySelect.value);
+    const total = currentPrice * quantity;
+    totalElement.textContent = `${total.toLocaleString()} FCFA`;
+}
+
+// Fonction pour mettre à jour le prix total (pour les autres produits)
 function updateTotalPrice(unitPrice) {
     const quantitySelect = document.getElementById('quantity');
     const totalElement = document.getElementById('total-amount');
@@ -238,6 +296,11 @@ function updateTotalPrice(unitPrice) {
         const total = unitPrice * quantity;
         totalElement.textContent = `${total.toLocaleString()} FCFA`;
     });
+    
+    // Initialiser le total au chargement
+    const quantity = parseInt(quantitySelect.value);
+    const total = unitPrice * quantity;
+    totalElement.textContent = `${total.toLocaleString()} FCFA`;
 }
 
 // Gestion des tabs
@@ -266,13 +329,28 @@ document.getElementById('order-form').addEventListener('submit', function(e) {
     const phone = document.getElementById('customer-phone').value;
     const address = document.getElementById('customer-address').value;
     const quantity = document.getElementById('quantity').value;
-    const total = product.price * parseInt(quantity);
+    
+    // Récupérer le prix actuel (peut être modifié par la formule pour Coupe Faim)
+    let unitPrice = product.price;
+    let formulaInfo = '';
+    
+    // Si c'est le Coupe Faim, récupérer le prix de la formule sélectionnée
+    if (productId === 'coupe-faim') {
+        const formulaSelect = document.getElementById('formula');
+        if (formulaSelect && formulaSelect.style.display !== 'none') {
+            unitPrice = parseInt(formulaSelect.value);
+            const formulaText = formulaSelect.options[formulaSelect.selectedIndex].text;
+            formulaInfo = `📋 *Formule :* ${formulaText}\n`;
+        }
+    }
+    
+    const total = unitPrice * parseInt(quantity);
     
     // Construction du message WhatsApp
     const message = `🛍️ *NOUVELLE COMMANDE DARLING BODY*
 
 📦 *Produit :* ${product.name}
-💰 *Prix unitaire :* ${product.price.toLocaleString()} FCFA
+${formulaInfo}💰 *Prix unitaire :* ${unitPrice.toLocaleString()} FCFA
 🔢 *Quantité :* ${quantity}
 💵 *Total :* ${total.toLocaleString()} FCFA
 

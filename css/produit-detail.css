@@ -348,8 +348,7 @@ h1, h2, h3, h4 {
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select {
+.form-group textarea {
     width: 100%;
     padding: 14px 18px;
     border: 2px solid rgba(0, 0, 0, 0.1);
@@ -360,11 +359,119 @@ h1, h2, h3, h4 {
     background: #FFFFFF;
 }
 
+/* === SELECT / SÉLECTEUR === */
+.form-group select,
+select {
+    width: 100%;
+    padding: 14px 45px 14px 18px; /* Espace pour la flèche */
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #FFFFFF;
+    color: #1F1F1F; /* Texte noir au lieu de bleu */
+    cursor: pointer;
+    appearance: none; /* Retire le style par défaut */
+    -webkit-appearance: none; /* Pour Safari */
+    -moz-appearance: none; /* Pour Firefox */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231F1F1F' d='M1.41 0L6 4.59L10.59 0L12 1.41l-6 6l-6-6z'/%3E%3C/svg%3E"); /* Flèche noire personnalisée */
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+
+.form-group select:hover,
+select:hover {
+    border-color: #FF1493; /* Bordure rose au hover */
+}
+
 .form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
+.form-group textarea:focus {
     outline: none;
     border-color: #1F1F1F;
+}
+
+.form-group select:focus,
+select:focus {
+    outline: none;
+    border-color: #FF1493; /* Bordure rose au focus */
+    box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1); /* Ombre rose légère */
+}
+
+/* Options dans la liste */
+.form-group select option,
+select option {
+    color: #1F1F1F; /* Texte noir */
+    background-color: #FFFFFF; /* Fond blanc */
+    padding: 10px;
+}
+
+.form-group select option:hover,
+.form-group select option:checked,
+select option:hover,
+select option:checked {
+    background-color: #FFD6E8; /* Fond rose clair quand sélectionné */
+    color: #1F1F1F;
+}
+
+/* === SÉLECTEUR DE FORMULE === */
+.formula-selector {
+    margin-bottom: 25px;
+}
+
+.formula-selector label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1F1F1F;
+    margin-bottom: 10px;
+}
+
+.formula-select {
+    width: 100%;
+    padding: 14px 45px 14px 18px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    background-color: #FFFFFF;
+    color: #1F1F1F;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231F1F1F' d='M1.41 0L6 4.59L10.59 0L12 1.41l-6 6l-6-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+
+.formula-select:hover {
+    border-color: #FF1493;
+}
+
+.formula-select:focus {
+    outline: none;
+    border-color: #FF1493;
+    box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1);
+}
+
+.formula-select option {
+    color: #1F1F1F;
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+
+.formula-select option:hover,
+.formula-select option:checked {
+    background-color: #FFD6E8;
+    color: #1F1F1F;
+}
+
+/* Animation pour le prix */
+#product-price {
+    transition: transform 0.2s ease;
+    display: inline-block;
 }
 
 .total-price {
@@ -777,22 +884,74 @@ h1, h2, h3, h4 {
         border-radius: 16px;
     }
 
-    /* Vignettes images */
+    /* === THUMBNAILS CORRIGES === */
     .thumbnails,
     .product-thumbnails {
         display: flex;
-        gap: 10px;
-        margin-top: 15px;
+        gap: 12px;
+        margin-top: 20px;
         overflow-x: auto;
-        padding: 5px 0;
+        padding: 10px 0;
         grid-template-columns: none;
+        -webkit-overflow-scrolling: touch; /* Scroll fluide sur iOS */
+        scrollbar-width: thin; /* Scrollbar fine sur Firefox */
+        position: relative; /* Pour la scrollbar personnalisée */
+    }
+
+    /* Scrollbar personnalisée (Webkit) */
+    .thumbnails::-webkit-scrollbar,
+    .product-thumbnails::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .thumbnails::-webkit-scrollbar-track,
+    .product-thumbnails::-webkit-scrollbar-track {
+        background: #FFD6E8;
+        border-radius: 2px;
+    }
+
+    .thumbnails::-webkit-scrollbar-thumb,
+    .product-thumbnails::-webkit-scrollbar-thumb {
+        background: #FF1493;
+        border-radius: 2px;
     }
 
     .thumbnail {
-        min-width: 60px;
-        height: 60px;
-        border-radius: 8px;
+        min-width: 70px; /* Augmente de 60px à 70px */
+        width: 70px; /* Force la largeur */
+        height: 70px; /* Force la hauteur égale */
+        flex-shrink: 0; /* Empêche le rétrécissement */
+        border-radius: 10px; /* Augmente l'arrondi */
+        border: 2px solid transparent; /* Bordure invisible par défaut */
         cursor: pointer;
+        transition: all 0.3s ease;
+        overflow: hidden; /* Cache ce qui dépasse */
+        background: linear-gradient(135deg, #FFD6E8 0%, #FEFAF9 100%); /* Fond rose */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px; /* Padding intérieur */
+    }
+
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Garde les proportions */
+        object-position: center; /* Centre l'image */
+        border-radius: 6px; /* Arrondi l'image */
+    }
+
+    /* Thumbnail active (sélectionnée) */
+    .thumbnail.active,
+    .thumbnail:hover {
+        border-color: #FF1493; /* Bordure rose */
+        box-shadow: 0 4px 12px rgba(255, 20, 147, 0.2); /* Ombre rose */
+        transform: translateY(-2px); /* Léger lift */
+    }
+
+    /* Thumbnail au clic/touch */
+    .thumbnail:active {
+        transform: translateY(0); /* Retour à la position normale */
     }
 
     /* === INFO PRODUIT === */
@@ -806,7 +965,10 @@ h1, h2, h3, h4 {
     /* Breadcrumb */
     .breadcrumb {
         font-size: 0.75rem;
-        margin-bottom: 15px;
+        margin-bottom: 12px; /* Réduit de 15px à 12px */
+        margin-top: 0;
+        padding-top: 100px; /* Évite que le breadcrumb soit masqué par le header fixe */
+        padding-bottom: 15px; /* Réduit le padding-bottom */
         flex-wrap: wrap;
     }
 
@@ -820,7 +982,8 @@ h1, h2, h3, h4 {
     .product-info h1,
     .product-title {
         font-size: 1.8rem;
-        margin-bottom: 15px;
+        margin-bottom: 10px; /* Réduit de 15px à 10px */
+        margin-top: 10px; /* Ajoute un margin-top */
         line-height: 1.2;
     }
 
@@ -833,6 +996,7 @@ h1, h2, h3, h4 {
     /* Rating */
     .product-rating {
         font-size: 0.85rem;
+        margin-top: 8px; /* Réduit l'espace au-dessus */
         margin-bottom: 20px;
     }
 
@@ -862,6 +1026,19 @@ h1, h2, h3, h4 {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
+    }
+
+    /* Sélecteur de formule responsive */
+    .formula-selector {
+        margin-bottom: 20px;
+    }
+
+    .formula-selector label {
+        font-size: 0.9rem;
+    }
+
+    .formula-select {
+        font-size: 0.9rem;
     }
 
     /* Sélecteur quantité */

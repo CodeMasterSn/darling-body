@@ -237,8 +237,7 @@ h1, h2, h3 {
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select {
+.form-group textarea {
     width: 100%;
     padding: 14px 18px;
     border: 2px solid rgba(0, 0, 0, 0.1);
@@ -249,11 +248,59 @@ h1, h2, h3 {
     background: #FFFFFF;
 }
 
+/* === SELECT / LISTE DÉROULANTE === */
+.form-group select,
+select {
+    width: 100%;
+    padding: 14px 45px 14px 18px; /* Espace pour la flèche */
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #FFFFFF;
+    color: #1F1F1F; /* Texte noir au lieu de bleu */
+    cursor: pointer;
+    appearance: none; /* Retire le style par défaut du navigateur */
+    -webkit-appearance: none; /* Pour Safari */
+    -moz-appearance: none; /* Pour Firefox */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231F1F1F' d='M1.41 0L6 4.59L10.59 0L12 1.41l-6 6l-6-6z'/%3E%3C/svg%3E"); /* Flèche noire personnalisée */
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+}
+
+.form-group select:hover,
+select:hover {
+    border-color: #FF1493; /* Bordure rose au hover */
+}
+
 .form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
+.form-group textarea:focus {
     outline: none;
     border-color: #1F1F1F;
+}
+
+.form-group select:focus,
+select:focus {
+    outline: none;
+    border-color: #FF1493; /* Bordure rose au focus */
+    box-shadow: 0 0 0 3px rgba(255, 20, 147, 0.1); /* Ombre rose légère */
+}
+
+/* Options dans la liste */
+.form-group select option,
+select option {
+    color: #1F1F1F; /* Texte noir */
+    background-color: #FFFFFF; /* Fond blanc */
+    padding: 10px;
+}
+
+.form-group select option:hover,
+.form-group select option:checked,
+select option:hover,
+select option:checked {
+    background-color: #FFD6E8; /* Fond rose clair quand sélectionné */
+    color: #1F1F1F;
 }
 
 .form-group textarea {
