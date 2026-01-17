@@ -1,0 +1,298 @@
+/* === GLOBAL STYLES === */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1F1F1F;
+    background: #FFFFFF;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.2;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #1F1F1F;
+    color: #FFFFFF;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #FF1493;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 20, 147, 0.3);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: transparent;
+    color: #1F1F1F;
+    border: 2px solid #1F1F1F;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #1F1F1F;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+/* === HEADER === */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+}
+
+.navbar {
+    padding: 20px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1F1F1F;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #1F1F1F;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #FF1493;
+}
+
+/* === FOOTER === */
+footer {
+    background: #1F1F1F;
+    color: #FFFFFF;
+    padding: 80px 0 30px;
+    margin-top: 100px;
+}
+
+footer .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #FFFFFF;
+}
+
+.footer-section p {
+    color: #B8B8B8;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 14px;
+}
+
+.footer-section ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-section ul li a {
+    color: #B8B8B8;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-section ul li a:hover {
+    color: #FF1493;
+    transform: translateX(3px);
+}
+
+.footer-bottom {
+    padding-top: 40px;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* === RESPONSIVE === */
+
+/* Tablette */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    /* Header Mobile */
+    .navbar {
+        padding: 15px 0;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        display: none; /* À remplacer par un menu burger plus tard */
+    }
+
+    .navbar .btn-primary {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+
+    /* Footer Mobile */
+    footer {
+        padding: 60px 0 30px;
+        margin-top: 60px;
+    }
+
+    footer .container {
+        padding: 0 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-section {
+        text-align: left;
+    }
+
+    .footer-section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .footer-section p {
+        font-size: 0.9rem;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 12px;
+    }
+
+    .footer-section ul li a {
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+        padding-top: 30px;
+        margin-top: 20px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Très petit mobile */
+@media (max-width: 480px) {
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+}

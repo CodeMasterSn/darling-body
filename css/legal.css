@@ -1,0 +1,162 @@
+/* === PAGES LÉGALES === */
+
+.legal-page {
+    padding: 120px 0 80px;
+    background: #FEFAF9;
+    min-height: 100vh;
+}
+
+.legal-page .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.legal-page h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1F1F1F;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.last-update {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 60px;
+    font-style: italic;
+}
+
+.legal-section {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.legal-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FF1493;
+    margin-bottom: 20px;
+}
+
+.legal-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1F1F1F;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.legal-section p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.legal-section ul,
+.legal-section ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.legal-section li {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.legal-section strong {
+    color: #1F1F1F;
+    font-weight: 600;
+}
+
+.legal-section a {
+    color: #FF1493;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.legal-section a:hover {
+    color: #FF69B4;
+    text-decoration: underline;
+}
+
+/* Contact info spéciale */
+.contact-info {
+    list-style: none;
+    margin-left: 0;
+    background: #F5E6E8;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #FF1493;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+}
+
+.contact-info strong {
+    color: #FF1493;
+}
+
+/* Table pour les frais de retour */
+.fees-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.fees-table thead {
+    background: #FF1493;
+    color: white;
+}
+
+.fees-table th,
+.fees-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #F5E6E8;
+}
+
+.fees-table tbody tr:hover {
+    background: #FEFAF9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .legal-page {
+        padding: 100px 0 60px;
+    }
+
+    .legal-page h1 {
+        font-size: 2rem;
+    }
+
+    .legal-section {
+        padding: 25px 20px;
+    }
+
+    .legal-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .legal-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .fees-table {
+        font-size: 0.9rem;
+    }
+
+    .fees-table th,
+    .fees-table td {
+        padding: 10px;
+    }
+}

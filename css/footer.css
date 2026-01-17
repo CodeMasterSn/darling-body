@@ -1,0 +1,138 @@
+/* === FOOTER STYLES === */
+
+footer {
+    background: #1F1F1F;
+    color: #FFFFFF;
+    padding: 80px 0 30px;
+    margin-top: 100px;
+}
+
+footer .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #FFFFFF;
+}
+
+.footer-section p {
+    color: #B8B8B8;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 14px;
+}
+
+.footer-section ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-section ul li a {
+    color: #B8B8B8;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-section ul li a:hover {
+    color: #FF1493;
+    transform: translateX(3px);
+}
+
+.footer-bottom {
+    padding-top: 40px;
+    margin-top: 20px;
+    border-top: 1px solid #333;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #888;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* === RESPONSIVE === */
+
+/* Tablette */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    footer {
+        padding: 60px 0 30px;
+        margin-top: 60px;
+    }
+
+    footer .container {
+        padding: 0 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-section {
+        text-align: left;
+    }
+
+    .footer-section h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .footer-section p {
+        font-size: 0.9rem;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 12px;
+    }
+
+    .footer-section ul li a {
+        font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+        padding-top: 30px;
+        margin-top: 20px;
+    }
+
+    .footer-bottom p {
+        font-size: 0.85rem;
+    }
+}

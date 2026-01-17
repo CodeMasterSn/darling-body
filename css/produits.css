@@ -1,0 +1,529 @@
+/* =============================================
+   DARLING BODY - PRODUITS.CSS
+   Page catalogue produits
+============================================= */
+
+/* === RESET & BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: #2D2D2D;
+    line-height: 1.6;
+    background: #FFFFFF;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* === TYPOGRAPHY === */
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* === CONTAINER === */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === BUTTONS === */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 28px; /* Réduit de 14px 32px à 12px 28px */
+    background: #1F1F1F;
+    color: #FFFFFF;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem; /* Réduit de 0.95rem à 0.9rem */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #1F1F1F;
+}
+
+.btn-primary:hover {
+    background: #FF1493;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    border-color: #FF1493;
+}
+
+.btn-product {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #1F1F1F;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 2px solid #1F1F1F;
+}
+
+.btn-product:hover {
+    background: transparent;
+    color: #1F1F1F;
+    transform: translateY(-2px);
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 18px 48px;
+    background: #1F1F1F;
+    color: #FFFFFF;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+    background: #2D2D2D;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* =============================================
+   HEADER / NAVIGATION
+============================================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 20px 0;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #1F1F1F;
+}
+
+.logo a {
+    color: inherit;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: #6B6B6B;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #FF1493;
+}
+
+.nav-link.active {
+    color: #1F1F1F;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #1F1F1F;
+}
+
+/* =============================================
+   PAGE HERO
+============================================= */
+.page-hero {
+    padding-top: 140px;
+    padding-bottom: 60px;
+    background: linear-gradient(135deg, #FFD6E8 0%, #FEFAF9 100%);
+    text-align: center;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    color: #1F1F1F;
+    margin-bottom: 16px;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: #6B6B6B;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* =============================================
+   PRODUCTS SECTION
+============================================= */
+.products-section {
+    padding: 80px 0;
+    background: #FFFFFF;
+}
+
+.products-section .container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 seule colonne au lieu de 2 */
+    gap: 50px;
+    max-width: 900px; /* Limite la largeur pour que ça reste élégant */
+    margin: 0 auto; /* Centre la grille */
+}
+
+.product-card {
+    display: grid;
+    grid-template-columns: 350px 1fr; /* Image à gauche, contenu à droite */
+    gap: 50px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1), border 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    align-items: center; /* Centre verticalement */
+    min-height: auto; /* Retire la hauteur fixe */
+    border: 2px solid transparent; /* Border transparent pour éviter le changement de taille au hover */
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(255, 20, 147, 0.3);
+    border: 2px solid #FF1493;
+}
+
+/* Product Image */
+.product-image-wrapper {
+    position: relative;
+    background: #FFD6E8;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px; /* Hauteur généreuse pour l'image */
+    width: 350px;
+    overflow: hidden; /* Contient les badges à l'intérieur du cadre */
+}
+
+.product-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #FF1493;
+    color: #FFFFFF;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10; /* Badge toujours visible au-dessus de l'image */
+}
+
+.product-badge.popular {
+    background: #FF1493;
+}
+
+.product-badge.nouveau {
+    background: #4CAF50;
+}
+
+.product-image {
+    width: 80%; /* Limite la largeur à 80% */
+    height: 80%; /* Limite la hauteur à 80% */
+    max-width: 100%;
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+    border-radius: 20px; /* Arrondi prononcé sur l'image du produit */
+    object-fit: contain; /* Garde les proportions */
+    display: block; /* Assure que l'image est un bloc pour que border-radius fonctionne */
+    overflow: hidden; /* Force le border-radius à être visible */
+    position: relative;
+    /* Utilise clip-path pour forcer l'arrondi visible */
+    clip-path: inset(0 round 20px);
+}
+
+/* Product Content */
+.product-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Espacement équilibré */
+    padding: 0; /* Pas de padding supplémentaire, déjà géré par .product-card */
+}
+
+.product-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stars {
+    color: #FFB800;
+    font-size: 1.1rem;
+}
+
+.rating-count {
+    font-size: 0.85rem;
+    color: #6B6B6B;
+}
+
+.product-name {
+    font-size: 2rem; /* Remonte à 2rem */
+    color: #1F1F1F;
+    margin: 0;
+}
+
+.product-tagline {
+    font-size: 1rem; /* Remonte à 1rem */
+    color: #FF1493;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: -10px;
+}
+
+.product-description {
+    font-size: 1rem; /* Remonte à 1rem */
+    color: #6B6B6B;
+    line-height: 1.7;
+}
+
+.product-features {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px; /* Espacement normal */
+    margin: 10px 0;
+}
+
+.product-features li {
+    font-size: 0.9rem; /* Remonte à 0.9rem */
+    color: #2D2D2D;
+    font-weight: 500;
+}
+
+.product-info {
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.product-format {
+    font-size: 0.9rem;
+    color: #6B6B6B;
+    font-weight: 500;
+}
+
+.product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 16px; /* Ajoute un peu d'espace en haut */
+}
+
+.product-price {
+    font-size: 2rem; /* Prix à taille normale */
+    font-weight: 700;
+    color: #1F1F1F;
+    font-family: 'Cormorant Garamond', serif;
+    white-space: nowrap; /* Empêche le retour à la ligne */
+}
+
+/* =============================================
+   CTA SECTION
+============================================= */
+.cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #FFD6E8 0%, #FEFAF9 100%);
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    color: #1F1F1F;
+    margin-bottom: 16px;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    color: #6B6B6B;
+    margin-bottom: 32px;
+}
+
+/* =============================================
+   FOOTER
+============================================= */
+.footer {
+    background: #1F1F1F;
+    color: #FFFFFF;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-title {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+}
+
+.footer-text {
+    color: #B8B8B8;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.footer-heading {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a,
+.footer-links li {
+    color: #B8B8B8;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #FF1493;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-link {
+    color: #B8B8B8;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #FF1493;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #B8B8B8;
+    font-size: 0.85rem;
+}
+
+/* =============================================
+   RESPONSIVE DESIGN
+============================================= */
+@media (max-width: 992px) {
+    .products-section .container {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-card {
+        grid-template-columns: 1fr; /* Retour en vertical sur tablette */
+        gap: 30px;
+    }
+    
+    .product-image-wrapper {
+        width: 100%;
+        height: 350px;
+    }
+    
+    .product-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .page-title {
+        font-size: 2.5rem;
+    }
+    
+    .product-card {
+        grid-template-columns: 1fr; /* Retour en vertical sur mobile */
+        padding: 30px 20px;
+    }
+    
+    .product-image-wrapper {
+        width: 100%;
+        height: 300px; /* Hauteur réduite sur mobile */
+    }
+    
+    .product-name {
+        font-size: 1.6rem;
+    }
+    
+    .product-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-product {
+        width: 100%;
+    }
+}

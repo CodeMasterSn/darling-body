@@ -1,0 +1,21 @@
+{
+    "liveServer.settings.port": 5500,
+    "liveServer.settings.root": "/",
+    "liveServer.settings.donotShowInfoMsg": false,
+    "liveServer.settings.donotVerifyTags": false,
+    "files.associations": {
+        "*.html": "html"
+    },
+    "emmet.includeLanguages": {
+        "html": "html"
+    },
+    "html.suggest.angular1": false,
+    "html.suggest.ionic": false,
+    "path-intellisense.mappings": {
+        "/": "${workspaceFolder}",
+        "css": "${workspaceFolder}/css",
+        "js": "${workspaceFolder}/js",
+        "img": "${workspaceFolder}/img"
+    }
+}
+
