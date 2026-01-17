@@ -822,35 +822,30 @@ h3 {
         padding: 0 20px;
     }
 
-    /* Hero Section */
+    /* === HERO SECTION MOBILE === */
     .hero {
-        padding-top: 120px;
+        padding: 120px 0 60px;
+        background: linear-gradient(135deg, #FFD6E8 0%, #FEFAF9 100%);
     }
 
     .hero-container {
-        grid-template-columns: 1fr; /* 1 colonne au lieu de 2 */
-        gap: 30px; /* Réduit de 40px à 30px */
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
         text-align: center;
         padding: 40px 20px;
         min-height: auto;
     }
 
     .hero-content {
-        order: 1; /* Texte en premier */
-    }
-
-    .hero-image {
-        order: 2; /* Image en second */
+        order: 1;
         width: 100%;
-        max-width: 450px; /* Limite la largeur sur mobile */
-        height: auto;
-        margin: 0 auto;
-        display: block;
     }
 
     .hero-title {
         font-size: 2.5rem;
         line-height: 1.2;
+        margin-bottom: 15px;
     }
 
     .hero-subtitle {
@@ -865,7 +860,8 @@ h3 {
     }
 
     .hero-cta {
-        flex-direction: column; /* Boutons empilés */
+        display: flex;
+        flex-direction: column;
         gap: 15px;
         align-items: center;
     }
@@ -878,27 +874,46 @@ h3 {
         font-size: 0.9rem;
     }
 
-    /* Hero Slideshow */
+    /* Image Hero */
+    .hero-image {
+        order: 2;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     .hero-slideshow {
         position: relative;
-        width: 100%;
-        height: 350px; /* Réduit de 400px à 350px */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: transparent; /* Pas de fond */
+        width: 90%;
+        max-width: 400px;
+        height: 350px;
+        margin: 0 auto;
+        display: block;
+        background: linear-gradient(135deg, #FFD6E8 0%, #FEFAF9 100%); /* Fond rose dégradé */
+        border-radius: 24px; /* Arrondit le container */
+        overflow: hidden; /* Coupe tout ce qui dépasse */
+        padding: 20px; /* Espace intérieur pour que l'image ne touche pas les bords */
     }
 
     .hero-slide {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 85%; /* 85% de la largeur au lieu de 100% */
-        height: 85%; /* 85% de la hauteur */
-        max-width: 400px; /* Largeur maximale */
+        top: 20px; /* Décale de 20px à cause du padding */
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        margin: auto;
+        width: calc(100% - 40px); /* Prend en compte le padding */
+        height: calc(100% - 40px);
         object-fit: contain;
-        display: block;
+        border-radius: 16px; /* Arrondit l'image elle-même */
+        opacity: 0;
+        transition: opacity 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero-slide.active {
+        opacity: 1;
+        z-index: 2;
     }
 
     /* Best Sellers Section */
@@ -927,14 +942,22 @@ h3 {
     }
 
     .product-image-wrapper {
-        height: 300px; /* Réduit la hauteur de l'image */
+        height: 320px; /* Augmente un peu la hauteur */
         width: 100%;
-        min-height: 300px;
+        min-height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px; /* Ajoute du padding */
     }
 
     .product-image {
-        width: 90%;
-        height: 90%;
+        width: auto; /* AUTO au lieu de 90% */
+        height: auto; /* AUTO au lieu de 90% */
+        max-width: 85%; /* Limite la largeur maximale */
+        max-height: 85%; /* Limite la hauteur maximale */
+        object-fit: contain; /* IMPORTANT : garde les proportions */
+        border-radius: 16px; /* Arrondit les coins */
     }
 
     .product-name {
