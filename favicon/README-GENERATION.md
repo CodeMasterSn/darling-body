@@ -44,3 +44,4 @@ Une fois les fichiers générés, le favicon fonctionnera sur :
 - ✅ iOS (écran d'accueil)
 
 
+
